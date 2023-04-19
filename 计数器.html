@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div class="input-num">
+            <button @click="sub">-</button>
+            <span>{{num}}</span>
+            <button @click="add">+</button>
+        </div>
+        <img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fspider.ws.126.net%2Fd1731bea1cce30eff12d67abd56bb049.jpeg&thumbnail=660x2147483647&quality=80&type=jpg" alt="">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                num:1
+            },
+            methods:{
+                add:function(){
+                    // console.log('add');
+                    if(this.num<10)
+                    this.num++;
+                    else{
+                        alert("别点了，已经最大了！");
+                    }
+                },
+                sub:function(){
+                    // console.log('sub');
+                    if(this.num>0)
+                    this.num--;
+                    else{
+                        alert("别点了，已经最小了");
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+</html>
+<!-- 总结
+创建vue实例时：el(挂载点)，data(数据)，methods(方法)
+v-on:绑定事件，简写为@
+方法中通过this，关键字获取data数据中的数据
+v-text:设置元素的文本值，简写为{{}}
+v-html：设置元素的innerHTML -->

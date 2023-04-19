@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue基础</title>
+</head>
+<body>
+    <div id="app">
+        <!-- {}是插值表达式，模板语法 作用：将数据与结构关联起来 -->
+        {{message}}
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app= new Vue({
+        el:"#app",//el是属性，告诉vue去管理id选择器app里的元素
+        data:{
+            message:"你好，小黑"//可以把message的值关联到页面上去
+        }
+    })
+</script>
+</body>
+</html>
+<!-- 总结 -->
+<!-- 第一个vue程序步骤：
+导入开发版本的vue.js
+创建vue实例对象，设置el属性和data属性
+即将el中大括号部分用data属性中的同名属性替换
+使用简洁的模板语法把数据渲染到页面上 -->

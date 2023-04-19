@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 响应式的可以修改数据 -->
+        <input type="button" value="添加数据" @click="add">
+        <input type="button" value="移除数据" @click="remove">
+
+        <ul>
+            <!-- //若上面Item变为it，则下面item也要变为it
+            item/it代表每一项，index代表索引 -->
+            <li v-for="(it,index) in arr">
+                {{index+1}}黑马程序员校区：{{it}}
+            </li>
+        </ul>
+        <h2 v-for="item in vegetable" v-bind:title="item.name">
+            {{item.name }}
+        </h2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                arr: ["北京", "上海", "广州", "深圳"],
+                // 对象属性
+                vegetable:[
+                    {name:"西兰花炒蛋"},
+                {name:"蛋炒西兰花"}
+            ]
+            },
+            // 操作数据的方法
+            methods:{
+                add:function(){
+                    // 追加内容
+                    this.vegetable.push({name:"花菜炒鸡蛋"})
+                },
+                remove:function(){
+                    this.vegetable.shift();
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
+<!-- 总结：
+v-for作用：根据数据生成列表结构
+数组经常和v-for结合使用
+语法是（it,index）in 数据
+item 和Index可以结合其他指令一起使用
+数组长度更新同步到页面上，是响应式的 -->

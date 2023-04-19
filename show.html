@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="切换显示状态" @click="changeIsShow">
+        <input type="button" value="累加年龄" @click="addage">
+        <img v-show="isShow" src="https://img.soogif.com/YIbrjMtQJumm6VqA7xXX04t3xBvKULVD.gif" alt="">
+        <img v-show="age>=18" src="https://img.soogif.com/YIbrjMtQJumm6VqA7xXX04t3xBvKULVD.gif" alt="">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                isShow: false,
+                age: 17
+            },
+            methods: {
+                changeIsShow: function () {
+                    this.isShow = !this.isShow;
+                },
+                addage:function(){
+                    this.age++;
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
+<!-- 总结
+v-show:根据真假切换元素的显示状态
+原理：修改元素的display，实现显示隐藏
+指令后最终会被解析为Bool值
+true:显示 false:隐藏
+数据改变后，对应元素的显示状态会同步更新 -->

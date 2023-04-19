@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>悦听player</title>
+</head>
+<!-- 样式 -->
+<link rel="stylesheet" href="">
+
+<body>
+    <div class="wrap">
+        <!-- 播放器主体区域 -->
+        <div class="play_wrap" id="player">
+            <div class="search_bar">
+                <img src="https://p3.ssl.qhimgs1.com/t017de59279417bc019.jpg" alt="">
+                <!-- 搜索歌曲 -->
+                <input type="text" autocomplete="off" v-model="query" @keyup.enter="searchMusic">
+            </div>
+            <div class="center_con">
+                <!-- 搜索歌词列表 -->
+                <div class="song_wrapper">
+                    <ul class="song_list">
+                        <li v-for="item in musicList"><a href="javascript:;" @click="playMusic(item.id)"></a>
+                            <b>{{item.name}}</b>
+                            <span><i></i></span>
+                        </li>
+
+                    </ul>
+                    <img src="" class="switch_btn" alt="">
+                </div>
+                <!-- 歌曲信息容器 -->
+                <div class="player_con">
+                    <img src="" class="play_bar">
+                    <!-- 黑胶碟片 -->
+                    <img src="" class="disc autoRotate">
+                    <img src="" class="cover autoRotate">
+                </div>
+            </div>
+            <div class="audio_con">
+                <audio  ref='audio'src="musicUrl" controls  autoplay loop class="myaudio"></audio>
+            </div>
+            <video class="video_con" style="display: none;">
+                <video src="" controls="controls"></video>
+                <div class="mask"></div>
+            </video>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main1.js"></script>
+</body>
+
+</html>

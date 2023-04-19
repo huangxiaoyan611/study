@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 插值表达式也是ok的 -->
+        <h2 v-text="message+'?'">深圳</h2>
+        <h2 v-text="info"></h2>
+        <h2 >{{message+'?'}} 深圳</h2>
+        <!-- 第三行与第一行内容一样，不过第三行的深圳是可以显现出来的 -->
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "黑马！！",
+                info:"前端与移动教研部"
+            }
+        })
+    </script>
+
+</body>
+
+</html>
+<!-- 总结
+v_text指令的作用是：设置标签的内容
+默认写法会替换全部内容，使用插值表达式{{}}可以替换指定内容
+内部支持写表达式 -->

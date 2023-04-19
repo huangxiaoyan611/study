@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="mask">
+        <div class="center">
+            <h2 class="title">
+                <img src="https://www.itheima.com/images/logo.png" alt="">
+                风景一
+            </h2>
+            <!-- 图片  v-if="index!=0" v-show="index<imgArr.length-1" -->
+            <img :src="imgArr[index]"  alt="">
+            <a href="javascript:void(0)" v-show="index!=0" @click="prev"class="left">
+                <img src="D:\源码\个人网页\2.png" alt="">
+            </a>
+            <a href="javascript:void(0)" v-show="index<imgArr.length-1" @click="next"class="right">
+                <img src="D:\源码\个人网页\1.png" alt="">
+            </a>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#mask",
+            data: {
+                imgArr: ["../个人网页/1.webp",
+                "../个人网页/2.webp",
+                "../个人网页/3.webp",
+                "../个人网页/4.webp",
+                "../个人网页/5.webp",],
+                index: 0
+            },
+            methods:{
+                prev:function(){
+                    this.index--;
+                },
+                next:function(){
+                    this.index++;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

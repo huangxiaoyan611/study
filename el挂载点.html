@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="body">
+    {{message}}
+    <!-- 在外面使用message它只能打印出{{message}} -->
+    <!-- 开发环境版本 -->
+  <div id="app" class="app">
+    {{message}}
+    <span>{{message}}</span>
+  </div>
+  <!-- 可把div换成p,h2等双标签，单标签是不行的 -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app=new Vue({
+        // el:".app",//el内部可以任意嵌套标签
+        // el:"#app"
+        // el:"div",//页面的标签选择器
+        el:"#body",
+// 一般选择id选择器，唯一性，因为类选择器和标签选择器可以命名多个元素，会造成语义不清楚
+        data:{
+            message:"黑马程序员"
+        }
+    })
+</script>
+</body>
+</html>
+<!-- 总结
+    el是用来设置vue实例挂载（管理）的元素
+vue实例的作用范围是：vue会管理el选项命中的元素及其内部的后代元素
+可以使用其他的选择器，但是建议使用id选择器
+是否可以设置其他的dom元素？可以使用其他的双标签，但是不能使用HTML和BODY -->
